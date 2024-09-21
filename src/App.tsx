@@ -4,11 +4,11 @@ import Arrow from './icons/Arrow'; // Ensure correct import path
 import { bear, coin, highVoltage, rocket, trophy, notcoin } from './images'; // Added notcoin import
 
 function App() {
-  const [points, setPoints] = useState(29857775);
-  const [energy, setEnergy] = useState(2532);
+  const [points, setPoints] = useState(10);
+  const [energy, setEnergy] = useState(10);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 12;
-  const energyToReduce = 12;
+  const pointsToAdd = 1;
+  const energyToReduce = 1;
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (energy - energyToReduce < 0) {
@@ -31,8 +31,8 @@ function App() {
   // useEffect hook to restore energy over time
   useEffect(() => {
     const interval = setInterval(() => {
-      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, 6500));
-    }, 100);
+      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, 100));
+    }, 1875);
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, []);
@@ -63,7 +63,7 @@ function App() {
           </div>
           <div className='text-base mt-2 flex items-center'>
             <img src={trophy} width={24} height={24} alt="trophy" />
-            <span className='ml-1'>Gold <Arrow size={18} className='ml-0 mb-1 inline-block' /></span>
+            <span className='ml-1'>Banana <Arrow size={18} className='ml-0 mb-1 inline-block' /></span>
           </div>
         </div>
 
@@ -74,25 +74,25 @@ function App() {
                 <img src={highVoltage} width={44} height={44} alt='High Voltage' />
                 <div className='ml-2 text-left'>
                   <span className='text-white text-2xl font-bold block'>{energy}</span>
-                  <span className='text-white text-large opacity-75'>/ 6500</span>
+                  <span className='text-white text-large opacity-75'>/ 100</span>
                 </div>
               </div>
             </div>
             <div className='flex-grow flex items-center max-w-60 text-sm'>
-              <div className='w-full bg-[#fad258] py-4 rounded-2xl flex justify-around'>
+              <div className='w-full bg-[#facb3c] py-4 rounded-2xl flex justify-around'>
                 <button className='flex flex-col items-center gap-1'>
                   <img src={bear} width={24} height={24} alt="Bear" />
-                  <span>Friends</span>
+                  <span>Referrals</span>
                 </button>
                 <div className='h-[10px] w-[2px] bg-[#fddb6d]'></div>
                 <button className='flex flex-col items-center gap-1'>
                   <img src={coin} width={24} height={24} alt='Coin' />
-                  <span>Earn</span>
+                  <span>Tasks</span>
                 </button>
                 <div className='h-[10px] w-[2px] bg-[#fddb6d]'></div>
                 <button className='flex flex-col items-center gap-1'>
                   <img src={rocket} width={24} height={24} alt='Rocket' />
-                  <span>Boosts</span>
+                  <span>Profile</span>
                 </button>
               </div>
             </div>
@@ -100,7 +100,7 @@ function App() {
           <div className='w-full bg-[#f9c035] rounded-full mt-4'>
             <div
               className='bg-gradient-to-r from-[#f3c45a] to-[#fffad0] h-4 rounded-full'
-              style={{ width: `${(energy / 6500) * 100}%` }} // Corrected inline style
+              style={{ width: `${(energy / 100) * 100}%` }} // Corrected inline style
             ></div>
           </div>
         </div>
@@ -118,7 +118,7 @@ function App() {
                 }}
                 onAnimationEnd={() => handleAnimationEnd(click.id)}
               >
-                12
+                1
               </div>
             ))}
           </div>

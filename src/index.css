@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'Skrapbook';
+    src: url('/fonts/skrapbook.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    font-family: sans-serif;
+    font-family: 'Skrapbook', sans-serif; /* Updated to use the custom font */
 }
 
 .bg-gradient-main {
